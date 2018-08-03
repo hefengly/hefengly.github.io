@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="VS Code," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="早睡，多看书，多运动">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hefeng">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="前段时间更新了 VS Code 后，突然就安装不了插件了，因为一直忙于赛飞奇的项目，也就放着不理了，今天想练一下 react, 于是就想着装个插件，顺带解决一直以来遗留的问题。">
+<meta name="keywords" content="VS Code">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VS Code 安装不了插件的踩坑之路">
+<meta property="og:url" content="http://yoursite.com/2018/08/03/VS-Code-安装不了插件的踩坑之路/index.html">
 <meta property="og:site_name" content="hefeng">
-<meta property="og:description" content="早睡，多看书，多运动">
+<meta property="og:description" content="前段时间更新了 VS Code 后，突然就安装不了插件了，因为一直忙于赛飞奇的项目，也就放着不理了，今天想练一下 react, 于是就想着装个插件，顺带解决一直以来遗留的问题。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-03T08:50:09.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hefeng">
-<meta name="twitter:description" content="早睡，多看书，多运动">
+<meta name="twitter:title" content="VS Code 安装不了插件的踩坑之路">
+<meta name="twitter:description" content="前段时间更新了 VS Code 后，突然就安装不了插件了，因为一直忙于赛飞奇的项目，也就放着不理了，今天想练一下 react, 于是就想着装个插件，顺带解决一直以来遗留的问题。">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/03/VS-Code-安装不了插件的踩坑之路/"/>
 
 
 
 
 
-  <title>hefeng</title>
+  <title>VS Code 安装不了插件的踩坑之路 | hefeng</title>
   
 
 
@@ -143,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -279,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/03/VS-Code-安装不了插件的踩坑之路/" itemprop="url">VS Code 安装不了插件的踩坑之路</a></h1>
+          <h1 class="post-title" itemprop="name headline">VS Code 安装不了插件的踩坑之路</h1>
         
 
         <div class="post-meta">
@@ -331,16 +330,24 @@
       
 
       
-        
-          <p>前段时间更新了 <code>VS Code</code> 后，突然就安装不了插件了，因为一直忙于赛飞奇的项目，也就放着不理了，今天想练一下 <code>react</code>, 于是就想着装个插件，顺带解决一直以来遗留的问题。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/03/VS-Code-安装不了插件的踩坑之路/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>前段时间更新了 <code>VS Code</code> 后，突然就安装不了插件了，因为一直忙于赛飞奇的项目，也就放着不理了，今天想练一下 <code>react</code>, 于是就想着装个插件，顺带解决一直以来遗留的问题。<br><a id="more"></a><br>第一个想法是卸载再安装，但是试了几次后还是不行，因为每次重新安装后，<code>VS Code</code> 的之前配置文件还是没有彻底删除，于是我去查了一下，<code>ubuntu</code> 彻底删除应用的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get --purge remove &lt;package&gt;           // 删除软件及其配置文件</span><br><span class="line"></span><br><span class="line">apt-get autoremove &lt;package&gt;              // 删除没用的依赖包</span><br></pre></td></tr></table></figure></p>
+<p>我试着去执行这两个命令的时候，第二个命令一直报错，怀着侥幸的心理我再次卸载重装，结果。。。还是不行</p>
+<blockquote>
+<ul>
+<li>谷歌了好多次，大多都是说线上安装不了，怎么在线下安装的问题，诸如梯子之类的什么。。。</li>
+<li>但是我是有用网络代理的，线下也是安装不了，所以问题应该不是代理的问题</li>
+</ul>
+</blockquote>
+<p>接着终于在 <code>VS Code</code> 的 <code>github</code> 找到了相关的<code>issue</code><br>按照他的教程</p>
+<blockquote>
+<p>Hit Ctrl Shift P to open the command palette, type Shared Process and choose Developer: Toggle Shared Process. In the devtools which opens, switch to the Network tab and retry installing. Show us the error that shows up in the Network tab.</p>
+</blockquote>
+<p>居然发现在 <code>VS Code</code> 居然能打开类似与浏览器的控制台，之前一直不知道….还是太菜了..唉</p>
+<p>于是这给了我一些灵感，在控制台的 <code>network</code> 捕捉到了我发起安装插件的网络请求，报了个错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error:permission denied... &apos;/home/...&apos;</span><br></pre></td></tr></table></figure></p>
+<p>报错信息大概是这样的，具体的忘了保存了，于是我顺着报错的信息给出的路径去找那个文件，发现我是没有这个文件的权限的， 为了获取执行权限， 我用了 <code>chmod</code> 指令修改文件的权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 &lt;filename&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后我估摸着重启一下，没想到居然可以了，原来一切的根源就是那个文件没有权限访问，但<code>VS Code</code> 主页上又不报错误信息，唉，有点毒。</p>
+<p>记录一下，希望下次遇到类型问题时，解决问题的途径和方法能优化一丢丢。</p>
+
       
     </div>
     
@@ -355,14 +362,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/VS-Code/" rel="tag"># VS Code</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -372,10 +385,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -383,6 +397,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -599,6 +617,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
